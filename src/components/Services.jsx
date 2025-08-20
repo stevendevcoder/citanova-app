@@ -1,16 +1,14 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-
+// Services.js
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import ServiceDetail from "./ServiceDetail";
 
-
-import React, { useState } from "react";
-
 function Services() {
-  const { t, i18n } = useTranslation();
-
+  const { t } = useTranslation();
   const [selectedService, setSelectedService] = useState(null);
-    
+
   const services = [
     {
       title: "Consultoría",
