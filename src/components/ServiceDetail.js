@@ -48,10 +48,10 @@ const ServiceDetail = ({ service }) => {
               className="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-   
+              {}{t("close", { defaultValue: "Cerrar" })}
             </button>
             <button type="button" className="btn btn-primary">
-  
+              {t("learnMore", { defaultValue: "Más información" })}  
             </button>
           </div>
         </div>
