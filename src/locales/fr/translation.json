@@ -36,5 +36,8 @@
 
   "requiredName": "Le nom est obligatoire.",
   "requiredMarital": "Veuillez sélectionner votre état civil.",
-  "passwordMin": "Le mot de passe doit contenir au moins 6 caractères."
+  "passwordMin": "Le mot de passe doit contenir au moins 6 caractères.",
+
+  "close": "fermer",
+  "learnMore": "plus d'informations"
 }

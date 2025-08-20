@@ -39,6 +39,7 @@
   "passwordMin": "Password must be at least 6 characters.",
 
  
-  "ModalServiceDetailTitle": "Service Detail"
-
+  "ModalServiceDetailTitle": "Service Detail",
+  "close": "Close",
+  "learnMore": "More info"
 }

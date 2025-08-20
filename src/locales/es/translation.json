@@ -36,5 +36,8 @@
 
   "requiredName": "El nombre es obligatorio.",
   "requiredMarital": "Selecciona tu estado civil.",
-  "passwordMin": "La contraseña debe tener al menos 6 caracteres."
+  "passwordMin": "La contraseña debe tener al menos 6 caracteres.",
+
+  "close": "Cerrar",
+  "learnMore": "Más información"
 }

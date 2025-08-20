@@ -1,12 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 import { useTranslation } from "react-i18next";
+import ServiceDetail from "./ServiceDetail";
 
 
-import React from "react";
+import React, { useState } from "react";
 
 function Services() {
   const { t, i18n } = useTranslation();
+
+  const [selectedService, setSelectedService] = useState(null);
     
   const services = [
     {
@@ -33,7 +36,9 @@ function Services() {
 
   return (
     <div className="container py-5">
-      <h1 className="text-center mb-5 fw-bold text-primary">{t("services", {defaultValue: "Servicios disponibles"})}</h1>
+      <h1 className="text-center mb-5 fw-bold text-primary">
+        {t("services", { defaultValue: "Servicios disponibles" })}
+      </h1>
       <div className="row g-4">
         {services.map((service, index) => (
           <div className="col-md-6 col-lg-4" key={index}>
@@ -58,18 +63,28 @@ function Services() {
                 style={{ height: "200px", objectFit: "cover" }}
               />
               <div className="card-body text-center">
-                <h5 className="card-title fw-bold text-dark">{service.title}</h5>
+                <h5 className="card-title fw-bold text-dark">
+                  {service.title}
+                </h5>
                 <p className="card-text text-muted">{service.text}</p>
               </div>
               <div className="card-footer bg-white text-center border-0">
-                <button className="btn btn-outline-primary rounded-pill px-4">
-                  Ver más
+                <button
+                  className="btn btn-outline-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#serviceModal"
+                  onClick={() => setSelectedService(service)}
+                >
+                  {t("viewDetails", { defaultValue: "Ver detalles" })}
                 </button>
               </div>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Modal único que se actualiza con el servicio seleccionado */}
+      <ServiceDetail service={selectedService} />
     </div>
   );
 }
