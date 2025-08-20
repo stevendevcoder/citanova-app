@@ -56,6 +56,19 @@ export async function registerWithEmail(email, password, name, maritalStatus) {
   return cred.user;
 }
 
+export function setSessionUser(user) {
+  if (user) {
+    localStorage.setItem("sessionUser", JSON.stringify({
+      uid: user.uid,
+      name: user.displayName || user.email.split("@")[0],
+      email: user.email,
+      maritalStatus: user.maritalStatus || ""
+    }));
+  } else {
+    localStorage.removeItem("sessionUser");
+  }
+}
+
 // --- Email+Password: LOGIN
 export async function loginWithEmail(email, password) {
   const { user } = await signInWithEmailAndPassword(auth, email, password);
@@ -77,6 +90,9 @@ export async function loginWithGoogle() {
 // --- LOGOUT
 export async function logout() {
   await signOut(auth);
+
+  setSessionUser(null);
+  return true;
 }
 
 // Exports agrupados (compatibilidad con tus imports)
