@@ -36,5 +36,9 @@
 
   "requiredName": "Name is required.",
   "requiredMarital": "Please select your marital status.",
-  "passwordMin": "Password must be at least 6 characters."
+  "passwordMin": "Password must be at least 6 characters.",
+
+ 
+  "ModalServiceDetailTitle": "Service Detail"
+
 }

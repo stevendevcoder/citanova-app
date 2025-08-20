@@ -1,14 +1,12 @@
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-
-import { auth, loginWithGoogle, registerWithEmail, loginWithEmail, setSessionUser, logout } from "../firebase";
+import { auth, loginWithGoogle, registerWithEmail, loginWithEmail, logout } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Login = () => {
-  const navigate = useNavigate();
+import ServiceDetail from "./ServiceDetail";
 
+const Login = () => {
   const { t, i18n } = useTranslation();
   const [user, loading] = useAuthState(auth);
 
@@ -25,44 +23,18 @@ const Login = () => {
     localStorage.setItem("language", lng);
   };
 
-  
-  useEffect(() => {
-    if (!loading && user) {
-      navigate("/");
-    }
-  }, [user, loading, navigate]);
-
   const handleAuth = async (e) => {
     e.preventDefault();
     setError(null);
-    let sessionUser = null;
     try {
       if (isRegistering) {
         if (!name.trim()) throw new Error(t("requiredName", { defaultValue: "El nombre es obligatorio." }));
         if (!maritalStatus) throw new Error(t("requiredMarital", { defaultValue: "Selecciona tu estado civil." }));
         if (password.length < 6) throw new Error(t("passwordMin", { defaultValue: "La contraseña debe tener al menos 6 caracteres." }));
-       await registerWithEmail(email, password, name.trim(), maritalStatus)
-        .then((user) => {
-          sessionUser = user;
-        });
+        await registerWithEmail(email, password, name.trim(), maritalStatus);
       } else {
-        await loginWithEmail(email, password)
-          .then((user) => {
-            sessionUser = user;
-          });
+        await loginWithEmail(email, password);
       }
-      setSessionUser(sessionUser);
-      navigate('/');
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  const handleGoogleLogin = async () => {
-    try {
-      const user = await loginWithGoogle();
-      setSessionUser(user);
-      navigate("/");
     } catch (err) {
       setError(err.message);
     }
@@ -85,7 +57,19 @@ const Login = () => {
           {isRegistering ? t("register", { defaultValue: "Registrarse" }) : t("login", { defaultValue: "Iniciar sesión" })}
         </h2>
 
-        {!user && (
+        {user ? (
+          
+          <div className="alert alert-success text-center">
+            <ServiceDetail />
+            {t("welcome", { defaultValue: "Bienvenido" })},{" "}
+            {user.displayName || user.email?.split("@")[0] || t("user", { defaultValue: "usuario" })}
+            <div className="mt-3">
+              <button onClick={logout} className="btn btn-outline-danger w-100">
+                {t("logout", { defaultValue: "Cerrar sesión" })}
+              </button>
+            </div>
+          </div>
+        ) : (
           <form onSubmit={handleAuth}>
             {isRegistering && (
               <>
@@ -131,7 +115,7 @@ const Login = () => {
                 : t("noAccount", { defaultValue: "¿No tienes cuenta? Regístrate" })}
             </button>
 
-            <button onClick={handleGoogleLogin} type="button" className="btn btn-dark mt-3 w-100">
+            <button onClick={loginWithGoogle} type="button" className="btn btn-dark mt-3 w-100">
               {t("signInWithGoogle", { defaultValue: "Iniciar sesión con Google" })}
             </button>
           </form>
