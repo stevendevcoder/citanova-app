@@ -4,6 +4,10 @@
   "logout": "Log out",
   "loading": "Loading...",
 
+  "services": "Services avaible",
+  "dashboard": "Home",
+  "settings": "Settings",
+
   "register": "Register",
   "login": "Login",
   "welcome": "Welcome",

@@ -4,6 +4,10 @@
   "logout": "Cerrar sesión",
   "loading": "Cargando...",
 
+  "services": "Servicios disponibles",
+  "dashboard": "Inicio",
+  "settings": "Configuracion",
+
   "register": "Registrarse",
   "login": "Iniciar sesión",
   "welcome": "Bienvenido",

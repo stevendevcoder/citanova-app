@@ -4,6 +4,10 @@
   "logout": "Se déconnecter",
   "loading": "Chargement...",
 
+  "services": "Services disponibles",
+  "dashboard": "Commencer",
+  "settings": "configuration",
+
   "register": "S'inscrire",
   "login": "Se connecter",
   "welcome": "Bienvenue",
