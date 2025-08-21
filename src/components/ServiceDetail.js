@@ -1,17 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const ServiceDetail = ({ service }) => {
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    localStorage.setItem("language", lng);
-  };
-
-  if (!service) return null;
-
+  // El modal SIEMPRE está en el DOM
   return (
     <div
       className="modal fade"
@@ -24,7 +18,7 @@ const ServiceDetail = ({ service }) => {
         <div className="modal-content rounded-4 shadow">
           <div className="modal-header">
             <h5 className="modal-title fw-bold" id="serviceModalLabel">
-              {service.title}
+              {service ? service.title : ""}
             </h5>
             <button
               type="button"
@@ -34,24 +28,38 @@ const ServiceDetail = ({ service }) => {
             ></button>
           </div>
           <div className="modal-body text-center">
-            <img
-              src={service.imgSrc}
-              alt={service.title}
-              className="img-fluid rounded mb-3"
-              style={{ maxHeight: "250px", objectFit: "cover" }}
-            />
-            <p className="text-muted">{service.text}</p>
+            {service ? (
+              <>
+                <h6 className="fw-bold">{service.title}</h6>
+                <p>{service.profesional}</p>
+                <img
+                  src={service.imgSrc}
+                  alt={service.title}
+                  className="img-fluid rounded mb-3"
+                  style={{ maxHeight: "250px", objectFit: "cover" }}
+                />
+                <p className="text-muted">{service.text}</p>
+                <h6 className="fw-bold">
+                  {t("priceList", { defaultValue: "Lista de precios" })}
+                </h6>
+                <p>Ejemplo 1 : 120.000 $COP</p>
+                <p>Ejemplo 2 : 150.000 $COP</p>
+                <p>Ejemplo 3 : 180.000 $COP</p>
+              </>
+            ) : (
+              <p className="text-muted">{t("noService", { defaultValue: "Selecciona un servicio para ver detalles." })}</p>
+            )}
           </div>
           <div className="modal-footer">
             <button
               type="button"
-              className="btn btn-secondary"
+              className="btn btn-dark"
               data-bs-dismiss="modal"
             >
-              {}{t("close", { defaultValue: "Cerrar" })}
+              {t("aiBtn", { defaultValue: "Agendar con IA" })}
             </button>
             <button type="button" className="btn btn-primary">
-              {t("learnMore", { defaultValue: "Más información" })}  
+              {t("calendarBtn", { defaultValue: "Agendar con calendario" })}
             </button>
           </div>
         </div>
@@ -61,4 +69,3 @@ const ServiceDetail = ({ service }) => {
 };
 
 export default ServiceDetail;
-

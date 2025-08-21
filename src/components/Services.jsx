@@ -14,21 +14,25 @@ function Services() {
       title: "Consultoría",
       text: "Asesoría personalizada para optimizar tu agenda y servicios.",
       imgSrc: "https://www.emprenderalia.com/wp-content/uploads/Consultoria-empresarial.jpg",
+      profesional: "Carlos Perez Ingeniero de Sistemas",
     },
     {
       title: "Agendamiento",
       text: "Sistema inteligente para agendar citas de manera rápida y sencilla.",
       imgSrc: "https://www.emprenderalia.com/wp-content/uploads/consultor-empresarial-576x384.jpg",
+      profesional: "Juana Gomez Administradora de Empresas",
     },
     {
       title: "Notificaciones",
       text: "Mantén informados a tus clientes con recordatorios automáticos.",
       imgSrc: "https://www.emprenderalia.com/wp-content/uploads/Consultoria-empresarial-que-es-576x384.jpg",
+      profesional: "Julian Martinez Especialista en Marketing",
     },
     {
       title: "Reportes",
       text: "Visualiza métricas y reportes claros sobre tus servicios.",
       imgSrc: "https://www.emagister.com/blog/wp-content/uploads/2020/10/nathon-oski-EW_rqoSdDes-unsplash-462x308.jpg",
+      profesional: "Andrea Arias Analista de Datos",
     },
   ];
 
