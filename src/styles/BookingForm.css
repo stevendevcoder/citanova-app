@@ -1,0 +1,670 @@
+/* ===== ESTILOS DEL FORMULARIO DE AGENDAMIENTO ===== */
+
+/* Variables específicas del formulario */
+:root {
+  --form-primary: #0d6efd;
+  --form-success: #198754;
+  --form-warning: #ffc107;
+  --form-danger: #dc3545;
+  --form-light: #f8f9fa;
+  --form-dark: #212529;
+  --form-border-radius: 12px;
+  --form-transition: 0.3s ease;
+  --form-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --form-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal del formulario */
+.booking-form-modal {
+  border: none;
+  border-radius: var(--form-border-radius);
+  box-shadow: var(--form-shadow-hover);
+  overflow: hidden;
+}
+
+/* Header del modal */
+.modal-header.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--form-primary), #0056b3) !important;
+  padding: 1.5rem;
+}
+
+.modal-header.bg-gradient-success {
+  background: linear-gradient(135deg, var(--form-success), #0f5132) !important;
+  padding: 1.5rem;
+}
+
+.booking-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.booking-icon i {
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Barra de progreso */
+.progress-container {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-bottom: 1px solid #dee2e6;
+}
+
+.progress {
+  background-color: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--form-primary), #0056b3);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* Contenido del formulario */
+.step-content {
+  animation: fadeInRight 0.4s ease;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Campos del formulario */
+.form-label {
+  color: var(--form-dark);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-control, .form-select {
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all var(--form-transition);
+  background-color: white;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--form-primary);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+  background-color: white;
+}
+
+.form-control.is-invalid {
+  border-color: var(--form-danger);
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+}
+
+.form-control.is-valid {
+  border-color: var(--form-success);
+  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+}
+
+/* Mensajes de error */
+.invalid-feedback {
+  color: var(--form-danger);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* Radio buttons personalizados */
+.form-check {
+  margin-bottom: 0.5rem;
+}
+
+.form-check-input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.1rem;
+  border: 2px solid #dee2e6;
+  transition: all var(--form-transition);
+}
+
+.form-check-input:checked {
+  background-color: var(--form-primary);
+  border-color: var(--form-primary);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.form-check-label {
+  color: var(--form-dark);
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+.form-check-label i {
+  color: var(--form-primary);
+  margin-right: 0.5rem;
+}
+
+/* Tarjeta de confirmación */
+.confirmation-card {
+  border: 2px solid #e9ecef;
+  transition: all var(--form-transition);
+}
+
+.confirmation-card:hover {
+  border-color: var(--form-primary);
+  box-shadow: var(--form-shadow);
+}
+
+.confirmation-card h6 {
+  color: var(--form-primary);
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.5rem;
+}
+
+.confirmation-card p {
+  margin-bottom: 0.5rem;
+  color: var(--form-dark);
+}
+
+.confirmation-card strong {
+  color: var(--form-primary);
+}
+
+/* Textarea */
+textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Select personalizado */
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  padding-right: 2.5rem;
+}
+
+.form-select:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%230d6efd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+}
+
+/* Footer del modal */
+.modal-footer {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+/* Botones */
+.btn {
+  border-radius: 25px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all var(--form-transition);
+  border: none;
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--form-shadow-hover);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  transform: none;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+/* Botón primario */
+.btn-primary {
+  background: linear-gradient(135deg, var(--form-primary), #0056b3);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0b5ed7, #004494);
+}
+
+/* Botón de éxito */
+.btn-success {
+  background: linear-gradient(135deg, var(--form-success), #0f5132);
+  color: white;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #157347, #0d3d26);
+}
+
+/* Botón outline */
+.btn-outline-secondary {
+  border: 2px solid #6c757d;
+  color: #6c757d;
+  background: transparent;
+}
+
+.btn-outline-secondary:hover {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-outline-danger {
+  border: 2px solid var(--form-danger);
+  color: var(--form-danger);
+  background: transparent;
+}
+
+.btn-outline-danger:hover {
+  background: var(--form-danger);
+  color: white;
+}
+
+/* Spinner de carga */
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 2px;
+}
+
+/* ===== ESTILOS PARA LA CONFIRMACIÓN ===== */
+
+/* Animación de éxito */
+.success-animation {
+  animation: bounceIn 0.8s ease;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Resumen de confirmación */
+.confirmation-summary {
+  border: 2px solid #e9ecef;
+  transition: all var(--form-transition);
+}
+
+.confirmation-summary:hover {
+  border-color: var(--form-primary);
+  box-shadow: var(--form-shadow);
+}
+
+.summary-item {
+  padding: 0.5rem 0;
+}
+
+.summary-item strong {
+  color: var(--form-primary);
+  font-size: 0.9rem;
+}
+
+.summary-item p {
+  margin: 0;
+  color: var(--form-dark);
+  font-weight: 500;
+}
+
+/* Próximos pasos */
+.next-steps {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(0, 86, 179, 0.1));
+  border: 2px solid rgba(13, 110, 253, 0.2);
+}
+
+.step-item {
+  transition: all var(--form-transition);
+}
+
+.step-item:hover {
+  transform: translateX(5px);
+}
+
+.step-number {
+  flex-shrink: 0;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Información de soporte */
+.support-info {
+  border: 1px solid #dee2e6;
+  transition: all var(--form-transition);
+}
+
+.support-info:hover {
+  border-color: var(--form-primary);
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+.support-info .badge {
+  font-size: 0.8rem;
+  padding: 0.5rem 0.75rem;
+  transition: all var(--form-transition);
+}
+
+.support-info .badge:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .modal-dialog.modal-lg {
+    max-width: 95%;
+    margin: 1rem auto;
+  }
+  
+  .modal-header {
+    padding: 1rem;
+  }
+  
+  .booking-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .booking-icon i {
+    font-size: 1.5rem !important;
+  }
+  
+  .modal-body {
+    padding: 1rem !important;
+  }
+  
+  .modal-footer {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .modal-footer .d-flex {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Responsive para confirmación */
+  .confirmation-summary .row {
+    flex-direction: column;
+  }
+  
+  .confirmation-summary .col-md-6 {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .next-steps .row {
+    flex-direction: column;
+  }
+  
+  .next-steps .col-md-6 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-dialog.modal-lg {
+    max-width: 100%;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .modal-content {
+    border-radius: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .step-content h5 {
+    font-size: 1.1rem;
+  }
+  
+  .form-label {
+    font-size: 0.85rem;
+  }
+  
+  .form-control, .form-select {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive para confirmación en móvil */
+  .success-animation i {
+    font-size: 3rem !important;
+  }
+  
+  .confirmation-summary {
+    padding: 1rem !important;
+  }
+  
+  .next-steps {
+    padding: 1rem !important;
+  }
+  
+  .support-info {
+    padding: 1rem !important;
+  }
+  
+  .support-info .d-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Animaciones adicionales */
+.form-control:focus {
+  transform: translateY(-1px);
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Efectos de hover para campos */
+.form-control:hover:not(:focus) {
+  border-color: #adb5bd;
+}
+
+/* Transiciones suaves */
+* {
+  transition: all var(--form-transition);
+}
+
+/* Mejoras para accesibilidad */
+.form-control:focus-visible {
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--form-primary);
+  outline-offset: 2px;
+}
+
+/* Estados de carga */
+.btn:disabled .spinner-border {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mejoras para campos de fecha y hora (futuro) */
+input[type="datetime-local"] {
+  font-family: inherit;
+}
+
+/* Estilos para tooltips (futuro) */
+.tooltip {
+  font-family: 'Inter', sans-serif;
+}
+
+.tooltip-inner {
+  background-color: var(--form-dark);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Mejoras para validación en tiempo real */
+.form-control.is-validating {
+  border-color: var(--form-warning);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23ffc107' d='M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 12c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm1-3H7V4h2v5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 16px;
+  padding-right: 2.5rem;
+}
+
+/* Indicadores de campo requerido */
+.form-label::after {
+  content: " *";
+  color: var(--form-danger);
+  font-weight: bold;
+}
+
+.form-label.optional::after {
+  content: "";
+}
+
+/* Mejoras para campos de teléfono y cédula */
+.form-control[type="tel"],
+.form-control[name="cedula"] {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+/* Estilos para el overlay del modal */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+/* Mejoras para el scroll del modal */
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* ===== ESTILOS ADICIONALES PARA LA CONFIRMACIÓN ===== */
+
+/* Badges personalizados */
+.badge.bg-dark {
+  background: linear-gradient(135deg, #495057, #343a40) !important;
+}
+
+.badge.bg-info {
+  background: linear-gradient(135deg, #0dcaf0, #0aa2c0) !important;
+}
+
+.badge.bg-warning {
+  background: linear-gradient(135deg, #ffc107, #e0a800) !important;
+}
+
+.badge.bg-danger {
+  background: linear-gradient(135deg, #dc3545, #b02a37) !important;
+}
+
+/* Efectos de hover para elementos de la confirmación */
+.confirmation-summary .summary-item:hover {
+  background-color: rgba(13, 110, 253, 0.05);
+  border-radius: 8px;
+  padding-left: 0.5rem;
+}
+
+.next-steps .step-item:hover .step-number {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animaciones para los pasos */
+.step-item {
+  animation: slideInLeft 0.5s ease forwards;
+  opacity: 0;
+}
+
+.step-item:nth-child(1) { animation-delay: 0.1s; }
+.step-item:nth-child(2) { animation-delay: 0.2s; }
+.step-item:nth-child(3) { animation-delay: 0.3s; }
+.step-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mejoras para el header de éxito */
+.modal-header.bg-gradient-success .booking-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

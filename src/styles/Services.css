@@ -1,0 +1,558 @@
+/* Variables CSS para consistencia de colores */
+:root {
+  --primary-color: #0d6efd;
+  --primary-hover: #0b5ed7;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --border-radius: 16px;
+  --transition-speed: 0.3s;
+}
+
+/* Estilos generales de la sección de servicios */
+.services-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.services-title {
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.services-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), #0056b3);
+  border-radius: 2px;
+}
+
+/* Estilos de las tarjetas de servicios */
+.service-card {
+  background: white;
+  border-radius: var(--border-radius);
+  border: none;
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), #0056b3);
+  transform: scaleX(0);
+  transition: transform var(--transition-speed) ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.1);
+}
+
+.service-card:hover .service-overlay {
+  opacity: 1;
+}
+
+/* Imagen del servicio */
+.service-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-speed) ease;
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.8), rgba(0, 86, 179, 0.8));
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-overlay-text {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  transform: translateY(20px);
+  transition: transform var(--transition-speed) ease;
+}
+
+.service-card:hover .service-overlay-text {
+  transform: translateY(0);
+}
+
+/* Contenido de la tarjeta */
+.service-card-body {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.service-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.service-description {
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.service-professional {
+  background: linear-gradient(135deg, var(--light-color), #e9ecef);
+  padding: 0.75rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--primary-color);
+}
+
+.professional-name {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.professional-role {
+  color: var(--secondary-color);
+  margin: 0;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* Botón de ver detalles */
+.service-button {
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all var(--transition-speed) ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.service-button:hover::before {
+  left: 100%;
+}
+
+.service-button:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #004494);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+}
+
+.service-button:active {
+  transform: translateY(0);
+}
+
+/* Footer de la tarjeta */
+.service-card-footer {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: none;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 2.5rem;
+  }
+  
+  .service-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .service-image-container {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-title {
+    font-size: 2rem;
+  }
+  
+  .service-card-body {
+    padding: 1rem;
+  }
+  
+  .service-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Efectos de carga */
+.service-card.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.service-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--primary-color);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== ESTILOS DEL MODAL MEJORADO ===== */
+
+/* Header del modal */
+.modal-header.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary-color), #0056b3) !important;
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Galería de imágenes */
+.gallery-container {
+  background: #f8f9fa;
+}
+
+.gallery-main-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-main-image img {
+  transition: transform 0.3s ease;
+}
+
+.gallery-main-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Controles de navegación de la galería */
+.gallery-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.gallery-nav-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-prev {
+  left: 20px;
+}
+
+.gallery-next {
+  right: 20px;
+}
+
+/* Miniaturas de la galería */
+.gallery-thumbnails {
+  gap: 10px;
+}
+
+.gallery-thumbnail {
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.gallery-thumbnail:hover {
+  transform: scale(1.1);
+  border-color: var(--primary-color);
+}
+
+.gallery-thumbnail.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.3);
+}
+
+/* Información del servicio en el modal */
+.service-info {
+  background: white;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Sistema de estrellas */
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #dee2e6;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.star.filled {
+  color: var(--warning-color);
+}
+
+.rating-text {
+  color: var(--dark-color);
+  font-size: 1.1rem;
+}
+
+/* Lista de características */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f1f3f4;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: #f8f9fa;
+  padding-left: 0.5rem;
+  border-radius: 8px;
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+/* Tarjeta de precios */
+.price-card {
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.price-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.1);
+}
+
+/* Tarjeta del profesional */
+.professional-card {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 1px solid #dee2e6;
+}
+
+.avatar-placeholder {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Footer del modal */
+.modal-footer {
+  padding: 1.5rem;
+}
+
+.modal-footer .btn {
+  border-radius: 25px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.modal-footer .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive del modal */
+@media (max-width: 992px) {
+  .modal-dialog.modal-xl {
+    max-width: 95%;
+    margin: 1rem auto;
+  }
+  
+  .gallery-main-image img {
+    height: 300px !important;
+  }
+  
+  .service-info {
+    padding: 1rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .modal-footer .d-flex {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .gallery-main-image img {
+    height: 250px !important;
+  }
+  
+  .gallery-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+/* Animaciones del modal */
+.modal.fade .modal-dialog {
+  transform: scale(0.8) translateY(-50px);
+  transition: all 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1) translateY(0);
+}
+
+/* Efectos de hover adicionales */
+.service-card:hover .service-professional {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border-left-color: #1976d2;
+}
+
+.service-card:hover .professional-name {
+  color: #1976d2;
+}
+
+/* Indicadores de estado */
+.badge {
+  font-size: 0.8rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.badge.bg-success {
+  background: linear-gradient(135deg, var(--success-color), #0f5132) !important;
+}
+
+.badge.bg-primary {
+  background: linear-gradient(135deg, var(--primary-color), #0056b3) !important;
+}
