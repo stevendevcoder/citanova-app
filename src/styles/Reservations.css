@@ -1,0 +1,84 @@
+:root {
+  --form-primary: #0d6efd;
+  --form-success: #198754;
+  --form-warning: #ffc107;
+  --form-danger: #dc3545;
+  --form-light: #f8f9fa;
+  --form-dark: #212529;
+  --form-border-radius: 12px;
+  --form-transition: 0.3s ease;
+  --form-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --form-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ======== Table Styles ======== */
+.table {
+  background-color: var(--form-light);
+  border-radius: var(--form-border-radius);
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: var(--form-primary);
+  color: white;
+}
+
+.table th {
+    background-color: var(--form-primary);
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(13, 110, 253, 0.05); /* light blue hover */
+  transition: background-color var(--form-transition);
+}
+
+/* ======== Image Styling ======== */
+.table img {
+  border-radius: var(--form-border-radius);
+  max-width: 100px;
+  height: auto;
+  transition: transform var(--form-transition);
+}
+
+.table img:hover {
+  transform: scale(1.05);
+}
+
+/* ======== Title ======== */
+h2 {
+  color: var(--form-primary);
+  font-weight: 600;
+}
+
+/* ======== Features List ======== */
+.table ul {
+  padding-left: 1rem;
+  text-align: left;
+}
+
+.table ul li {
+  list-style-type: disc;
+  font-size: 0.95rem;
+}
+
+/* ======== Responsive tweaks ======== */
+@media (max-width: 768px) {
+  .table th,
+  .table td {
+    font-size: 0.85rem;
+  }
+
+  .table img {
+    max-width: 80px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
