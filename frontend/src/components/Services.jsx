@@ -72,7 +72,7 @@ function Services() {
                   <div className="service-professional">
                     <p className="professional-name">{service.profesional}</p>
                     <p className="professional-role">{service.role}</p>
-                    <small className="text-muted">Experiencia: {service.experience}</small>
+                    <small className="text-muted">{service.features.join(',')}</small>
                   </div>
 
                   <div className="d-flex justify-content-between align-items-center mb-3">

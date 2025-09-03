@@ -11,13 +11,12 @@ exports.crearServicio = async (req, res) => {
   try {
     console.log(req.body);
     
-    const { title, text, imgSrc, rating, priceRange, features, ubicacion } = req.body;
+    const { title, text, imgSrc, priceRange, features, ubicacion } = req.body;
 
     const nuevoServicio = {
       title,
       text,
       imgSrc,
-      rating,
       priceRange,
       features,
       ubicacion

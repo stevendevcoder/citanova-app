@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../styles/Services.css";
 import BookingForm from "./BookingForm";
 import BookingConfirmation from "./BookingConfirmation";

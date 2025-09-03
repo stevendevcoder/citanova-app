@@ -68,7 +68,6 @@ function Proveedores() {
         title: formData.title,
         text: formData.text,
         imgSrc: formData.imgSrc.filter((url) => url.trim() !== ""),
-        rating: parseFloat(formData.rating),
         priceRange: parseInt(formData.priceRange, 10),
         features: formData.features.filter((f) => f.trim() !== ""),
         ubicacion: {
@@ -85,7 +84,6 @@ function Proveedores() {
         title: "",
         text: "",
         imgSrc: [""],
-        rating: 0,
         priceRange: 1,
         features: [""],
         coordinates: null,
@@ -161,30 +159,15 @@ function Proveedores() {
             </button>
           </div>
 
-          {/* Rating */}
-          <div className="mb-3">
-            <label className="form-label">Calificación (0 - 5)</label>
-            <input
-              type="number"
-              name="rating"
-              className="form-control"
-              step="0.1"
-              min="0"
-              max="5"
-              value={formData.rating}
-              onChange={handleChange}
-            />
-          </div>
 
           {/* PriceRange */}
           <div className="mb-3">
-            <label className="form-label">Rango de precios (1 - 5)</label>
+            <label className="form-label">Precio por hora:</label>
             <input
               type="number"
               name="priceRange"
               className="form-control"
               min="1"
-              max="5"
               value={formData.priceRange}
               onChange={handleChange}
             />

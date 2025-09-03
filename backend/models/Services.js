@@ -16,11 +16,6 @@ const servicioSchema = new mongoose.Schema({
 
   imgSrc: [String],
 
-  rating: {
-    type: Number,
-    required: true 
-  },
-
   priceRange: {
     type: Number,
     required: true 
