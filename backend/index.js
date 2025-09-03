@@ -5,6 +5,7 @@ const mongoose = require('mongoose'); // ODM para MongoDB
 const cors = require('cors'); // Middleware para habilitar CORS
 const clienteRoutes = require('./routes/clienteRoutes'); // Rutas para la entidad Cliente
 const sedeRoutes = require('./routes/sedeRoutes'); // Rutas para la entidad Sede
+const servicioRoutes = require('./routes/serviceRoutes');
 
 // Creación de la aplicación Express
 const app = express();
@@ -29,6 +30,8 @@ mongoose.connect(process.env.MONGO_URI, {
 // Rutas
 app.use('/api/clientes', clienteRoutes); // Define las rutas bajo el prefijo /api/clientes
 app.use('/api/sedes', sedeRoutes); // Define las rutas bajo el prefijo /api/sedes
+app.use('/api/servicios', servicioRoutes);
+
 
 // Puerto en el que se ejecutará el servidor
 const PORT = process.env.PORT || 3000; // Usa el puerto definido en las variables de entorno o el 3000 por defecto
