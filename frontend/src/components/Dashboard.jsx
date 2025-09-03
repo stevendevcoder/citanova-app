@@ -66,6 +66,11 @@ function Dashboard() {
               </Link>
             </li>
             <li className="nav-item mb-2">
+              <Link className="nav-link text-dark" to="proveedores">
+                📋 {t("proveedores", { defaultValue: "Proveedores" })}
+              </Link>
+            </li>
+            <li className="nav-item mb-2">
               <Link className="nav-link text-dark" to="settings">
                 ⚙️ {t("settings", { defaultValue: "Ajustes" })}
               </Link>

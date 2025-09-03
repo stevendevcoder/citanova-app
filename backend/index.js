@@ -34,7 +34,7 @@ app.use('/api/servicios', servicioRoutes);
 
 
 // Puerto en el que se ejecutará el servidor
-const PORT = process.env.PORT || 3000; // Usa el puerto definido en las variables de entorno o el 3000 por defecto
+const PORT = process.env.PORT || 3001; // Usa el puerto definido en las variables de entorno o el 3000 por defecto
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`); // Mensaje en consola indicando el puerto en uso
 });

@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Services from "./components/Services";
 import Settings from "./components/Settings";
+import Proveedores from "./components/Proveedores";
 import AuthForm from "./components/AuthForm";
 import Dashboard from "./components/Dashboard";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,6 +21,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="services" element={<Services />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="proveedores" element={<Proveedores />} />
         </Route>
       </Routes>
     </Router>

@@ -4,71 +4,28 @@ import { useTranslation } from "react-i18next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import ServiceDetail from "./ServiceDetail";
+import { getServicios } from "../api/servicios";
 import "../styles/Services.css";
 
 function Services() {
   const { t } = useTranslation();
   const [selectedService, setSelectedService] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
-  const services = [
-    {
-      id: 1,
-      title: "Consultoría Empresarial",
-      text: "Asesoría personalizada para optimizar tu agenda y servicios empresariales con estrategias probadas.",
-      imgSrc: "https://www.emprenderalia.com/wp-content/uploads/Consultoria-empresarial.jpg",
-      profesional: "Carlos Pérez",
-      role: "Ingeniero de Sistemas",
-      experience: "8+ años",
-      rating: 4.9,
-      priceRange: "Desde $120.000 COP",
-      features: ["Análisis de procesos", "Optimización de flujos", "Implementación de soluciones"]
-    },
-    {
-      id: 2,
-      title: "Agendamiento Inteligente",
-      text: "Sistema inteligente para agendar citas de manera rápida y eficiente con IA avanzada.",
-      imgSrc: "https://www.emprenderalia.com/wp-content/uploads/consultor-empresarial-576x384.jpg",
-      profesional: "Juana Gómez",
-      role: "Administradora de Empresas",
-      experience: "5+ años",
-      rating: 4.8,
-      priceRange: "Desde $150.000 COP",
-      features: ["IA predictiva", "Sincronización automática", "Recordatorios inteligentes"]
-    },
-    {
-      id: 3,
-      title: "Notificaciones Automáticas",
-      text: "Mantén informados a tus clientes con recordatorios automáticos y personalizados.",
-      imgSrc: "https://www.emprenderalia.com/wp-content/uploads/Consultoria-empresarial-que-es-576x384.jpg",
-      profesional: "Julian Martínez",
-      role: "Especialista en Marketing",
-      experience: "6+ años",
-      rating: 4.7,
-      priceRange: "Desde $180.000 COP",
-      features: ["Multi-canal", "Personalización", "Analytics avanzado"]
-    },
-    {
-      id: 4,
-      title: "Reportes y Analytics",
-      text: "Visualiza métricas y reportes claros sobre tus servicios con dashboards interactivos.",
-      imgSrc: "https://www.emagister.com/blog/wp-content/uploads/2020/10/nathon-oski-EW_rqoSdDes-unsplash-462x308.jpg",
-      profesional: "Andrea Arias",
-      role: "Analista de Datos",
-      experience: "7+ años",
-      rating: 4.9,
-      priceRange: "Desde $200.000 COP",
-      features: ["Dashboards en tiempo real", "Exportación de datos", "Insights automáticos"]
-    },
-  ];
+  const [services, setServices] = useState([]);
 
   useEffect(() => {
-    // Simular carga de servicios
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 800);
+    const fetchServicios = async () => {
+      try {
+        const data = await getServicios();
+        setServices(data.reverse());
+      } catch (error) {
+        console.error("❌ Error al obtener servicios:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-    return () => clearTimeout(timer);
+    fetchServicios();
   }, []);
 
   const handleServiceClick = (service) => {
