@@ -41,4 +41,14 @@
 
   "close": "fermer",
   "learnMore": "plus d'informations"
+  ,
+  "homeCards.services.title": "Services disponibles",
+  "homeCards.services.desc": "Parcourir et gérer les services disponibles",
+  "homeCards.services.cta": "Aller aux services",
+  "homeCards.providers.title": "Créer service fournisseur",
+  "homeCards.providers.desc": "Ajouter ou gérer des fournisseurs",
+  "homeCards.providers.cta": "Créer fournisseur",
+  "homeCards.settings.title": "Paramètres",
+  "homeCards.settings.desc": "Configurer les préférences et paramètres de l'application",
+  "homeCards.settings.cta": "Ouvrir paramètres"
 }

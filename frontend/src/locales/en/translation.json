@@ -43,4 +43,14 @@
   "ModalServiceDetailTitle": "Service Detail",
   "close": "Close",
   "learnMore": "More info"
+  ,
+  "homeCards.services.title": "Available services",
+  "homeCards.services.desc": "Browse and manage available services",
+  "homeCards.services.cta": "Go to services",
+  "homeCards.providers.title": "Create provider service",
+  "homeCards.providers.desc": "Add or manage providers",
+  "homeCards.providers.cta": "Create provider",
+  "homeCards.settings.title": "Settings",
+  "homeCards.settings.desc": "Configure app preferences and settings",
+  "homeCards.settings.cta": "Open settings"
 }
